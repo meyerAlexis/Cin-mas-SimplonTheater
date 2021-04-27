@@ -3,7 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /* Class master Cinema */
-class Cinema { 
+class Cinema 
+{ 
 	public static String  errorCheck;
 
 	//Check if number of place > 0 and <= 9
@@ -53,7 +54,6 @@ class Cinema {
 	
 	
 	public static void addSalle( int numRange, int numPlace, int[][] tab ){
-		System.out.println("Range: " +numRange+ " Place: "+numPlace);
 		
 		//For each range (i)
 		for (int i = 0;i < tab.length; i++) {
@@ -75,14 +75,10 @@ class Cinema {
 
 					//Check if range can add numPlace define, in start by startPlace
 					int lastPosDefine = numPlace + startPlace ;
-					System.out.println("lastPosDefine " +lastPosDefine);
-					System.out.println("startPlace " +startPlace);
 					if( (tab[i].length - startPlace) - (numPlace-1) > 0 ){
-						System.out.println("OK");
 						//numPlace can add in range numRange
 						for (int posDefine = startPlace;posDefine < lastPosDefine;posDefine++) {
 							tab[numRange][posDefine] = 1;
-							System.out.println("numRange: " +numRange +" posDefine: "+posDefine);
 						}
 						
 						
@@ -91,6 +87,7 @@ class Cinema {
 				
 					}
 				}
+
 		}
 		
 	}
@@ -104,7 +101,10 @@ class Cinema {
 			
 			 BufferedReader reader =
                    new BufferedReader(new InputStreamReader(System.in));
-			do {				
+
+
+			do {
+				
 				System.out.println("A quelle rangée voulez vous aller (1 - 8):"); 
 				 int numRange = Integer.parseInt(reader.readLine())-1;
 				if( checkNumRange(numRange) == false ){
